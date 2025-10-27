@@ -12,7 +12,7 @@ const Footer = () => {
         </p>
         <div className="flex space-x-6">
           <a
-            href="https://github.com/mkdm54"
+            href="https://github.com/dum-archlich"
             target="_blank"
             rel="noopener noreferrer"
             className="text-always-black hover:text-portfolio-pink transition-colors"

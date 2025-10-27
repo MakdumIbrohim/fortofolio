@@ -9,7 +9,7 @@ const certificates = [
     description:
       "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Dasar Pemrograman JavaScript.",
     image: "/sertifikat_dicoding_js_dasar.png",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_dicoding_js_dasar.png",
+    link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_dicoding_js_dasar.png",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const certificates = [
     description:
       "Sertifikat partisipasi pada grup 'Ingin Menjadi Programmer Handal Namun Enggan Ngoding' dari IMPHNEN.",
     image: "/sertifikat_kompetensi_kemalasan.jpg",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg",
+    link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const certificates = [
     description:
       "Sertifikat kelulusan untuk kelas Belajar Dasar Pemrograman Web.",
     image: "/sertifikat_belajar_dasar_pemrograman_web.png",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
+    link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const certificates = [
     description:
       "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Membuat Front-End Web untuk Pemula.",
     image: "/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
+    link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const certificates = [
     description:
       "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Memulai Pemrograman Dengan Dart.",
     image: "/sertifikat_memulai_pemrograman_dart.png",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_memulai_pemrograman_dart.png",
+    link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_memulai_pemrograman_dart.png",
   },
 ];
 

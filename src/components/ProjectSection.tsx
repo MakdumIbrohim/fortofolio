@@ -18,7 +18,7 @@ const projects = [
     title: "Chatbot App",
     description:
       "A simple chatbot application that can respond to user queries, built with React and a focus on conversational UI.",
-    projectUrl: "https://github.com/mkdm54/chatbot_app", // Tautan ke repositori GitHub
+    projectUrl: "https://github.com/dum-archlich/chatbot_app", // Tautan ke repositori GitHub
     image: "/chatbot_app_screenshot.jpg", // Menambahkan gambar untuk proyek chatbot
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     title: "easyPDF App",
     description:
       "A mobile-friendly application for managing PDF files, including image to PDF conversion, opening, and merging PDFs.",
-    projectUrl: "https://github.com/mkdm54/easyPDF-app",
+    projectUrl: "https://github.com/dum-archlich/easyPDF-app",
     image: "/easyPDF_app_screenshot.jpg",
   },
 ];
