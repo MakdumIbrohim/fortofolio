@@ -18,6 +18,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
   response.setHeader('Access-Control-Allow-Headers', 'X-CSRF-TOKEN, Content-Type, Authorization, x-csrf-token');
   response.setHeader('Access-Control-Allow-Credentials', 'true');
 
+  // Add additional headers that might be needed
+  response.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
+
   // Handle preflight OPTIONS request
   if (request.method === 'OPTIONS') {
     return response.status(204).end();
@@ -69,7 +72,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
     const headersToForward: Record<string, string> = {};
     for (const key in request.headers) {
       // Filter out headers that should not be forwarded or are handled by Vercel
-      if (!['host', 'connection', 'content-length', 'x-vercel-forwarded-for', 'x-real-ip', 'x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-vercel-deployment-url', 'origin', 'referer'].includes(key.toLowerCase())) {
+        if (!['host', 'connection', 'content-length', 'x-vercel-forwarded-for', 'x-real-ip', 'x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-vercel-deployment-url', 'origin'].includes(key.toLowerCase())) {
         const headerValue = request.headers[key];
         if (typeof headerValue === 'string') {
           headersToForward[key] = headerValue;
@@ -89,6 +92,11 @@ export default async function handler(request: VercelRequest, response: VercelRe
     // Add Accept header if not present
     if (!headersToForward['accept']) {
         headersToForward['accept'] = 'application/json, text/plain, */*';
+    }
+
+    // Add Referer header to mimic browser requests
+    if (!headersToForward['referer']) {
+        headersToForward['referer'] = 'https://www.roblox.com/';
     }
 
     // Only include body for POST/PUT requests if request.body exists

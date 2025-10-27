@@ -84,38 +84,9 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
           ? `/api/roblox/proxy`
           : `/roblox-avatar-api`; //? ubah nanti ygy
 
-        // --- Step 0: Fetch X-CSRF-TOKEN using a dummy POST request ---
-        let csrfToken = "";
-        try {
-          console.log("Attempting to fetch CSRF token...");
-          const csrfResponse = await fetch(
-            isProduction
-              ? `${proxyApiBase}?service=catalog&robloxPath=v1/catalog/items/details`
-              : `/roblox-catalog-api/v1/catalog/items/details`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify({}),
-            }
-          );
-
-          console.log(`CSRF response status: ${csrfResponse.status}`);
-          const token = csrfResponse.headers.get("x-csrf-token");
-          if (token) {
-            csrfToken = token;
-            console.log("CSRF token obtained successfully");
-          } else {
-            console.warn(
-              "X-CSRF-TOKEN not found in response headers from dummy POST to catalog endpoint."
-            );
-          }
-        } catch (csrfErr) {
-          console.error("Error fetching CSRF token:", csrfErr);
-          // Continue without CSRF token - some endpoints might not require it
-        }
+        // --- Step 0: Skip CSRF token for now - catalog API might work without it ---
+        const csrfToken = "";
+        console.log("Skipping CSRF token fetch for catalog API");
 
         // Step 1: Get item IDs currently wearing
         const wearingResponse = await fetch(
@@ -149,7 +120,6 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
-              ...(csrfToken && { "X-CSRF-TOKEN": csrfToken }), // Only include if token exists
             },
             body: JSON.stringify({
               items: assetIds.map((id) => ({ itemType: "Asset", id: id })),
