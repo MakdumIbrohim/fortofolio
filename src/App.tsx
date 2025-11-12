@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CalculatorPage from "./projects/calculator/CalculatorPage";
+import CertificatesDicoding from "./pages/CertificatesDicoding";
+import CertificatesHacktiv8 from "./pages/CertificatesHacktiv8";
+import CertificatesImphnen from "./pages/CertificatesImphnen";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import CSS AOS
 
@@ -37,6 +40,9 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/certificates/dicoding" element={<CertificatesDicoding />} />
+              <Route path="/certificates/hacktiv8" element={<CertificatesHacktiv8 />} />
+              <Route path="/certificates/imphnen" element={<CertificatesImphnen />} />
               <Route path="/projects/calculator" element={<CalculatorPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

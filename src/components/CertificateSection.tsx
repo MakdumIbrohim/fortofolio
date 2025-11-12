@@ -1,115 +1,37 @@
 import React from "react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useNavigate } from "react-router-dom";
 
-// Data sertifikat dikelompokkan berdasarkan penyedia
-const certificateGroups = {
-  dicoding: [
-    {
-      id: 1,
-      title: "Belajar Dasar Pemrograman JavaScript",
-      description:
-        "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Dasar Pemrograman JavaScript.",
-      image: "/sertifikat_dicoding_js_dasar.png",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_dicoding_js_dasar.png",
-    },
-    {
-      id: 3,
-      title: "Belajar Dasar Pemrograman Web",
-      description:
-        "Sertifikat kelulusan untuk kelas Belajar Dasar Pemrograman Web.",
-      image: "/sertifikat_belajar_dasar_pemrograman_web.png",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
-    },
-    {
-      id: 4,
-      title: "Belajar Membuat Front-End Web untuk Pemula",
-      description:
-        "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Membuat Front-End Web untuk Pemula.",
-      image: "/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
-    },
-    {
-      id: 5,
-      title: "Memulai Pemrograman Dengan Dart",
-      description:
-        "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Memulai Pemrograman Dengan Dart.",
-      image: "/sertifikat_memulai_pemrograman_dart.png",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_memulai_pemrograman_dart.png",
-    },
-  ],
-  hacktiv8: [],
-  imphnen: [
-    {
-      id: 2,
-      title: "Sertifikat Kompetensi Kemalasan",
-      description:
-        "Sertifikat partisipasi pada grup 'Ingin Menjadi Programmer Handal Namun Enggan Ngoding' dari IMPHNEN.",
-      image: "/sertifikat_kompetensi_kemalasan.jpg",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg",
-    },
-  ],
-};
+// Data platform sertifikat
+const certificatePlatforms = [
+  {
+    id: "dicoding",
+    name: "Dicoding",
+    description: "Platform pembelajaran teknologi terdepan di Indonesia",
+    color: "bg-portfolio-teal",
+    count: 4,
+    path: "/certificates/dicoding",
+  },
+  {
+    id: "hacktiv8",
+    name: "Hacktiv8",
+    description: "Bootcamp programming intensif untuk developer profesional",
+    color: "bg-portfolio-yellow",
+    count: 0,
+    path: "/certificates/hacktiv8",
+  },
+  {
+    id: "imphnen",
+    name: "IMPHNEN",
+    description: "Komunitas programmer yang unik dan inspiratif",
+    color: "bg-portfolio-red-pink",
+    count: 1,
+    path: "/certificates/imphnen",
+  },
+];
 
 const CertificateSection = () => {
-  // Fungsi untuk merender daftar sertifikat atau pesan kosong jika tidak ada
-  const renderCertificates = (certs: typeof certificateGroups.dicoding) => {
-    if (certs.length === 0) {
-      return (
-        <div className="text-center py-12">
-          <p className="text-lg text-gray-600">Belum ada sertifikat dari provider ini</p>
-        </div>
-      );
-    }
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {certs.map((certificate) => (
-          <div key={certificate.id} className="relative w-full min-h-[450px]">
-            <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>
-            <Card
-              className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-portfolio-teal
-                         transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none"
-            >
-              <CardHeader className="p-0">
-                <AspectRatio ratio={16 / 9}>
-                  {certificate.image ? (
-                    <img
-                      src={certificate.image}
-                      alt={certificate.title}
-                      className="object-cover w-full h-full border-b-4 border-portfolio-black"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full bg-gray-200 text-gray-500 text-xl font-semibold border-b-4 border-portfolio-black">
-                      Certificate Placeholder {certificate.id}
-                    </div>
-                  )}
-                </AspectRatio>
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-card-text-dark-mode mb-2">
-                  {certificate.title}
-                </CardTitle>
-                <p className="text-card-text-dark-mode mb-4">
-                  {certificate.description}
-                </p>
-                {certificate.link && (
-                  <a
-                    href={certificate.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-portfolio-purple-link hover:underline font-semibold"
-                  >
-                    View Certificate
-                  </a>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-        ))}
-      </div>
-    );
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="w-full bg-background py-16 md:py-20 lg:py-24">
@@ -117,37 +39,37 @@ const CertificateSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           My Certificates
         </h2>
-        <Tabs defaultValue="dicoding" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-background">
-            <TabsTrigger
-              value="dicoding"
-              className="data-[state=active]:bg-portfolio-teal data-[state=active]:text-foreground border-2 border-portfolio-black"
-            >
-              Dicoding
-            </TabsTrigger>
-            <TabsTrigger
-              value="hacktiv8"
-              className="data-[state=active]:bg-portfolio-yellow data-[state=active]:text-foreground border-2 border-portfolio-black"
-            >
-              Hacktiv8
-            </TabsTrigger>
-            <TabsTrigger
-              value="imphnen"
-              className="data-[state=active]:bg-portfolio-red-pink data-[state=active]:text-foreground border-2 border-portfolio-black"
-            >
-              IMPHNEN
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="dicoding">
-            {renderCertificates(certificateGroups.dicoding)}
-          </TabsContent>
-          <TabsContent value="hacktiv8">
-            {renderCertificates(certificateGroups.hacktiv8)}
-          </TabsContent>
-          <TabsContent value="imphnen">
-            {renderCertificates(certificateGroups.imphnen)}
-          </TabsContent>
-        </Tabs>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificatePlatforms.map((platform) => (
+            <div key={platform.id} className="relative w-full min-h-[300px]">
+              <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>
+              <Card
+                className={`absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden ${platform.color}
+                           transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none cursor-pointer`}
+                onClick={() => navigate(platform.path)}
+              >
+                <CardHeader className="p-6">
+                  <CardTitle className="text-2xl font-bold text-foreground mb-2">
+                    {platform.name}
+                  </CardTitle>
+                  <p className="text-foreground/80 mb-4">
+                    {platform.description}
+                  </p>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-semibold text-foreground">
+                      {platform.count} Sertifikat
+                    </span>
+                    <span className="text-sm text-foreground/60">
+                      Klik untuk melihat
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
