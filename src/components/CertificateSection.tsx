@@ -118,10 +118,25 @@ const CertificateSection = () => {
           My Certificates
         </h2>
         <Tabs defaultValue="dicoding" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="dicoding">Dicoding</TabsTrigger>
-            <TabsTrigger value="hacktiv8">Hacktiv8</TabsTrigger>
-            <TabsTrigger value="imphnen">IMPHNEN</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 mb-8 bg-background">
+            <TabsTrigger
+              value="dicoding"
+              className="data-[state=active]:bg-portfolio-teal data-[state=active]:text-foreground border-2 border-portfolio-black"
+            >
+              Dicoding
+            </TabsTrigger>
+            <TabsTrigger
+              value="hacktiv8"
+              className="data-[state=active]:bg-portfolio-yellow data-[state=active]:text-foreground border-2 border-portfolio-black"
+            >
+              Hacktiv8
+            </TabsTrigger>
+            <TabsTrigger
+              value="imphnen"
+              className="data-[state=active]:bg-portfolio-red-pink data-[state=active]:text-foreground border-2 border-portfolio-black"
+            >
+              IMPHNEN
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="dicoding">
             {renderCertificates(certificateGroups.dicoding)}
