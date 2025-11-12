@@ -14,6 +14,14 @@ const certificateGroups = {
       link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_dicoding_js_dasar.png",
     },
     {
+      id: 3,
+      title: "Belajar Dasar Pemrograman Web",
+      description:
+        "Sertifikat kelulusan untuk kelas Belajar Dasar Pemrograman Web.",
+      image: "/sertifikat_belajar_dasar_pemrograman_web.png",
+      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
+    },
+    {
       id: 4,
       title: "Belajar Membuat Front-End Web untuk Pemula",
       description:
@@ -31,14 +39,6 @@ const certificateGroups = {
     },
   ],
   hacktiv8: [
-    {
-      id: 3,
-      title: "Belajar Dasar Pemrograman Web",
-      description:
-        "Sertifikat kelulusan untuk kelas Belajar Dasar Pemrograman Web.",
-      image: "/sertifikat_belajar_dasar_pemrograman_web.png",
-      link: "https://raw.githubusercontent.com/dum-archlich/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
-    },
     {
       id: 2,
       title: "Sertifikat Kompetensi Kemalasan",
