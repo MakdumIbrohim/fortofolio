@@ -11,6 +11,7 @@ const certificatePlatforms = [
     color: "bg-portfolio-teal",
     count: 4,
     path: "/certificates/dicoding",
+    logo: "/dicoding.jpg",
   },
   {
     id: "hacktiv8",
@@ -19,6 +20,7 @@ const certificatePlatforms = [
     color: "bg-portfolio-yellow",
     count: 0,
     path: "/certificates/hacktiv8",
+    logo: "/hacktiv8.png",
   },
   {
     id: "imphnen",
@@ -27,6 +29,7 @@ const certificatePlatforms = [
     color: "bg-portfolio-red-pink",
     count: 1,
     path: "/certificates/imphnen",
+    logo: "/imphnen.jpg",
   },
 ];
 
@@ -49,10 +52,17 @@ const CertificateSection = () => {
                 onClick={() => navigate(platform.path)}
               >
                 <CardHeader className="p-6">
-                  <CardTitle className="text-2xl font-bold text-portfolio-black dark:text-white mb-2">
-                    {platform.name}
-                  </CardTitle>
-                  <p className="text-portfolio-black/80 dark:text-white/90 mb-4">
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={platform.logo}
+                      alt={`${platform.name} logo`}
+                      className="w-12 h-12 mr-4 rounded-full object-cover border-2 border-portfolio-black"
+                    />
+                    <CardTitle className="text-2xl font-bold text-portfolio-black dark:text-white">
+                      {platform.name}
+                    </CardTitle>
+                  </div>
+                  <p className="text-portfolio-black/80 dark:text-white/90">
                     {platform.description}
                   </p>
                 </CardHeader>
